@@ -8,8 +8,8 @@ How to use it in an AnyLogic model you already created:
 4) Create a JAVA class where your tests will live. YOu can create as many of these classes as you want. Let's call this class MainTest  
 
 Configure RunAllTests  
-5) you need to import the library in the imports section: import jUnit6ForAnyLogic.AnyLogicJUnitLauncher;  
-6) you can run the tests in the code section, for example: AnyLogicJUnitLauncher.doTest(CalculatorTest.class);  
+- you need to import the library in the imports section: import jUnit6ForAnyLogic.AnyLogicJUnitLauncher;  
+- you can run the tests in the code section, for example: AnyLogicJUnitLauncher.doTest(CalculatorTest.class);  
 will run all the tests present in the class CalculatorTest 
 Note: you can really run the doTest method anywhere, but running it in here seems to be the best option  
 
