@@ -11,7 +11,8 @@ Configure RunAllTests
 - you need to import the library in the imports section: import jUnit6ForAnyLogic.AnyLogicJUnitLauncher;  
 - you can run the tests in the code section, for example: AnyLogicJUnitLauncher.doTest(CalculatorTest.class);  
 will run all the tests present in the class CalculatorTest 
-Note: you can really run the doTest method anywhere, but running it in here seems to be the best option  
+Note: you can really run the doTest method anywhere, but running it in here seems to be the best option
+The doTest method is packaged as it is the reason why configuring the use of JUNIT6 is complicated in AnyLogic, so to avoid you doing complicated things we packaged this along with the junit6 dependencies, so you also don't have to do complicated things with Maven.
 
 If you are testing classes or agents, sometimes you don't need to even run a simulation, in those cases, you don't need to do anything  
 
