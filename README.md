@@ -1,45 +1,83 @@
-# junit6-for-anylogic
-Library meant to use JUNIT6 to do your unit tests in AnyLogic. This library is free, created by Noorjax Consulting
-https://www.noorjax.com
+**junit6-for-anylogic**
 
-How to use it in an AnyLogic model you already created:
-1) add the .jar to your model dependencies.  
-2) Create a custom experiment. Let's call it Tester  
-3) Create another custom experiment, let call it RunAllTests  
-4) Create a JAVA class where your tests will live. YOu can create as many of these classes as you want. Let's call this class MainTest  
+A lightweight library that enables JUnit 6 unit testing inside AnyLogic.
+Created and maintained by Noorjax Consulting — https://www.noorjax.com
 
-Configure RunAllTests  
-- you need to import the library in the imports section: import jUnit6ForAnyLogic.AnyLogicJUnitLauncher;  
-- you can run the tests in the code section, for example: AnyLogicJUnitLauncher.doTest(CalculatorTest.class);  
-will run all the tests present in the class CalculatorTest 
-Note: you can really run the doTest method anywhere, but running it in here seems to be the best option
-The doTest method is packaged as it is the reason why configuring the use of JUNIT6 is complicated in AnyLogic, so to avoid you doing complicated things we packaged this along with the junit6 dependencies, so you also don't have to do complicated things with Maven.
+This library is completely free to use.
 
-If you are testing classes or agents, sometimes you don't need to even run a simulation, in those cases, you don't need to do anything  
+✅ How to Use It in an Existing AnyLogic Model
+1. Add the JAR
 
-If you are testing agents that do need to run the simulation, you can do it using the @BeforeEach annotation... in general it will look something like this:  
+Download the JAR and add it to your model dependencies.
 
-@BeforeEach  
-	void setup() {    
-		engine=new Tester(null).createEngine();  
-		engine.getDefaultRandomGenerator().setSeed(1);  
-		engine.setTimeUnit( SECOND );  
-		engine.setStartTime( 0.0 );  
-		engine.setStopTime(1,HOUR);  
-		root = new Main( engine, null, null );	  
-		engine.start( root );   
-    //other initalization here  
-	}  
+2. Create a Custom Experiment
 
-You can check the examples we have available, we will add more plus tutorials.  
+Create a custom experiment.
+Name it for example: Tester.
 
+3. Create Another Custom Experiment
 
+Create a second custom experiment.
+Name it for example: RunAllTests.
 
-Thanks to our launcher library, you will se the tests results always nicely in the AnyLogic console, for example:  
+4. Create Your Test Classes
 
-**✘ Some tests failed (1/3) for CalculatorTest  
-----  
-Test: add 2 numbers  ❌  
-  Message : expected: <20.0> but was: <30.0>  
-✔ All tests passed (1/1) for FactorialTest  
-✔ All tests passed (4/4) for StudentServiceTest  
+Create a Java class where your tests will live.
+You can create as many test classes as you want.
+Example name: MainTest.
+
+⚙️ Configure the RunAllTests Experiment
+
+In the imports section, add:
+```
+import jUnit6ForAnyLogic.AnyLogicJUnitLauncher;
+```
+
+In the code section, run your tests like:
+```
+AnyLogicJUnitLauncher.doTest(CalculatorTest.class);
+```
+
+This will execute all tests inside CalculatorTest.
+
+Note:
+Technically you can call doTest anywhere, but placing it inside the RunAllTests experiment is the recommended approach.
+
+The launcher and all required JUnit 6 dependencies are bundled inside this library, so you don't need to configure Maven or deal with test engines manually.
+
+🧪 Running Tests That Require a Simulation
+
+If your tests involve agents or classes that do not require running a simulation, you can simply test them directly — nothing special is needed.
+
+If your tests require a simulation to be executed, use @BeforeEach to initialize the engine and environment.
+A typical setup looks like this:
+```
+@BeforeEach
+void setup() {
+    engine = new Tester(null).createEngine();
+    engine.getDefaultRandomGenerator().setSeed(1);
+    engine.setTimeUnit(SECOND);
+    engine.setStartTime(0.0);
+    engine.setStopTime(1, HOUR);
+
+    root = new Main(engine, null, null);
+    engine.start(root);
+
+    // other initialization here
+}
+```
+
+We provide examples in the repository, and more tutorials will be added soon.
+
+📟 Test Output in the AnyLogic Console
+
+Thanks to the launcher, test results always appear cleanly formatted inside the AnyLogic console.
+Example:
+
+✘ Some tests failed (1/3) for CalculatorTest
+----
+Test: add 2 numbers  ❌
+  Message : expected: <20.0> but was: <30.0>
+
+✔ All tests passed (1/1) for FactorialTest
+✔ All tests passed (4/4) for StudentServiceTest
