@@ -39,6 +39,8 @@ AnyLogicJUnitLauncher.doTest(CalculatorTest.class);
 ```
 
 This will execute all tests inside CalculatorTest.
+You can also do AnyLogicJUnitLauncher.doTest(CalculatorTest.class,parallelRuns);  
+where parallelRuns is an integer to allow you to decide how many parallel runs are allowed, but you will need to use the @Execution(ExecutionMode.CONCURRENT) annotation along with this.
 
 Note:
 Technically you can call doTest anywhere, but placing it inside the RunAllTests experiment is the recommended approach.
