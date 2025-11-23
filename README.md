@@ -79,5 +79,5 @@ Example:
 Test: add 2 numbers  ❌
   Message : expected: <20.0> but was: <30.0>
 
-✔ All tests passed (1/1) for FactorialTest
+✔ All tests passed (1/1) for FactorialTest  
 ✔ All tests passed (4/4) for StudentServiceTest
