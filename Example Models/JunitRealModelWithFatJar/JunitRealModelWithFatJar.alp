@@ -5458,7 +5458,11 @@ generalParameters.getScanTimeStdDev())/2.0]]></Code>
 			<Text><![CDATA[import org.junit.jupiter.params.*;
 import org.junit.jupiter.params.provider.*;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
+
 import static org.junit.jupiter.api.Assertions.*;
+
 
 public class MainTest {
 	Main root;
@@ -5466,6 +5470,7 @@ public class MainTest {
 	
 	@BeforeEach
 	void setup() {
+		System.out.println("here");
 		engine=new Tester(null).createEngine();
 		engine.getDefaultRandomGenerator().setSeed(1);
 		engine.setTimeUnit( SECOND );
@@ -5475,24 +5480,12 @@ public class MainTest {
 		engine.start( root );
 		root.passengerArrivals.set_rate(0);
 	}
-
-	@Test
-	public void NoPassengerArrival() {
-		engine.runFast();
-		assertEquals(0,root.sink.count());
-	}
-
-	@Test
-	public void PassengerArrivesAndExits() {
-		root.passengerArrivals.inject();
-		engine.runFast();
-		assertEquals(1,root.sink.count());
-	}
 	
 	@DisplayName("scenarios")
 	@ParameterizedTest(name = "{displayName}(scenarioId={0})")
 	@ValueSource(ints = { 0,1,2})
 	void palindromes(int scenarioId) {
+		System.out.println("scenario"+scenarioId);
 		root.controlParameters.setScenario(scenarioId);
 		root.initModel();
 		engine.runFast();
@@ -5501,9 +5494,27 @@ public class MainTest {
 		assertEquals(maleScanners,root.maleScanners.capacity,"male capacity wrong");
 		assertEquals(femaleScanners,root.femaleScanners.capacity,"female capacity wrong");
 	}
+
+	@Test
+	public void NoPassengerArrival() {
+		System.out.println("no passenger");
+		engine.runFast();
+		assertEquals(0,root.sink.count());
+	}
+
+	@Test
+	public void PassengerArrivesAndExits() {
+		System.out.println("passenger");
+		root.passengerArrivals.inject();
+		engine.runFast();
+		assertEquals(1,root.sink.count());
+	}
+	
+	
 	
 	@Test
 	public void DoesntRescan() {
+		System.out.println("no rescan");
 		root.passengerArrivals.inject();
 		root.generalParameters.setInsufficientScanRate(0);
 		engine.runFast();
@@ -5511,6 +5522,7 @@ public class MainTest {
 	}
 	@Test
 	public void DoesRescan() {
+		System.out.println("no scan");
 		root.passengerArrivals.inject();
 		root.generalParameters.setInsufficientScanRate(100);
 		engine.runFast();
