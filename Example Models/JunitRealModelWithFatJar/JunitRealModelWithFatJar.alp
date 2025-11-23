@@ -5314,25 +5314,139 @@ generalParameters.getScanTimeStdDev())/2.0]]></Code>
 		<JavaClass>
 			<Id>1763573221708</Id>
 			<Name><![CDATA[GeneralParameters]]></Name>
-			<Text><![CDATA[import lombok.*;
-import java.time.LocalDateTime;
-@NoArgsConstructor(access = AccessLevel.PROTECTED)	
-@AllArgsConstructor(access = AccessLevel.PROTECTED) 
+			<Text><![CDATA[public class GeneralParameters {
 
-public @Data class GeneralParameters {
-	private double arrivalRatePerMinute;
-	private double scanTimeAvg;
-	private double scanTimeStdDev;
-	private double scanTimeMin;
-	private double insufficientScanRate;
-	private double alarmRateM;
-	private double alarmRateF;
-	private double searchAvgSeconds;
-	private double searchStdDevSeconds;
-	private double searchMinSeconds;
-	private double failSearchRate;
+    private double arrivalRatePerMinute;
+    private double scanTimeAvg;
+    private double scanTimeStdDev;
+    private double scanTimeMin;
+    private double insufficientScanRate;
+    private double alarmRateM;
+    private double alarmRateF;
+    private double searchAvgSeconds;
+    private double searchStdDevSeconds;
+    private double searchMinSeconds;
+    private double failSearchRate;
 
-}]]></Text>
+
+    public GeneralParameters() { }
+
+
+    public GeneralParameters(
+            double arrivalRatePerMinute,
+            double scanTimeAvg,
+            double scanTimeStdDev,
+            double scanTimeMin,
+            double insufficientScanRate,
+            double alarmRateM,
+            double alarmRateF,
+            double searchAvgSeconds,
+            double searchStdDevSeconds,
+            double searchMinSeconds,
+            double failSearchRate) {
+
+        this.arrivalRatePerMinute = arrivalRatePerMinute;
+        this.scanTimeAvg = scanTimeAvg;
+        this.scanTimeStdDev = scanTimeStdDev;
+        this.scanTimeMin = scanTimeMin;
+        this.insufficientScanRate = insufficientScanRate;
+        this.alarmRateM = alarmRateM;
+        this.alarmRateF = alarmRateF;
+        this.searchAvgSeconds = searchAvgSeconds;
+        this.searchStdDevSeconds = searchStdDevSeconds;
+        this.searchMinSeconds = searchMinSeconds;
+        this.failSearchRate = failSearchRate;
+    }
+
+    public double getArrivalRatePerMinute() {
+        return arrivalRatePerMinute;
+    }
+
+    public void setArrivalRatePerMinute(double arrivalRatePerMinute) {
+        this.arrivalRatePerMinute = arrivalRatePerMinute;
+    }
+
+    public double getScanTimeAvg() {
+        return scanTimeAvg;
+    }
+
+    public void setScanTimeAvg(double scanTimeAvg) {
+        this.scanTimeAvg = scanTimeAvg;
+    }
+
+    public double getScanTimeStdDev() {
+        return scanTimeStdDev;
+    }
+
+    public void setScanTimeStdDev(double scanTimeStdDev) {
+        this.scanTimeStdDev = scanTimeStdDev;
+    }
+
+    public double getScanTimeMin() {
+        return scanTimeMin;
+    }
+
+    public void setScanTimeMin(double scanTimeMin) {
+        this.scanTimeMin = scanTimeMin;
+    }
+
+    public double getInsufficientScanRate() {
+        return insufficientScanRate;
+    }
+
+    public void setInsufficientScanRate(double insufficientScanRate) {
+        this.insufficientScanRate = insufficientScanRate;
+    }
+
+    public double getAlarmRateM() {
+        return alarmRateM;
+    }
+
+    public void setAlarmRateM(double alarmRateM) {
+        this.alarmRateM = alarmRateM;
+    }
+
+    public double getAlarmRateF() {
+        return alarmRateF;
+    }
+
+    public void setAlarmRateF(double alarmRateF) {
+        this.alarmRateF = alarmRateF;
+    }
+
+    public double getSearchAvgSeconds() {
+        return searchAvgSeconds;
+    }
+
+    public void setSearchAvgSeconds(double searchAvgSeconds) {
+        this.searchAvgSeconds = searchAvgSeconds;
+    }
+
+    public double getSearchStdDevSeconds() {
+        return searchStdDevSeconds;
+    }
+
+    public void setSearchStdDevSeconds(double searchStdDevSeconds) {
+        this.searchStdDevSeconds = searchStdDevSeconds;
+    }
+
+    public double getSearchMinSeconds() {
+        return searchMinSeconds;
+    }
+
+    public void setSearchMinSeconds(double searchMinSeconds) {
+        this.searchMinSeconds = searchMinSeconds;
+    }
+
+    public double getFailSearchRate() {
+        return failSearchRate;
+    }
+
+    public void setFailSearchRate(double failSearchRate) {
+        this.failSearchRate = failSearchRate;
+    }
+}
+]]></Text>
 		</JavaClass>
 		<!--   =========   Java Class   ========  -->
 		<JavaClass>
@@ -5380,7 +5494,7 @@ public class MainTest {
 		root.initModel();
 		engine.runFast();
 		int maleScanners=scenarioId==0 ? 2 : 1;
-		int femaleScanners=scenarioId==2 ? 1 : 1;
+		int femaleScanners=scenarioId==2 ? 1 : 0;
 		assertEquals(maleScanners,root.maleScanners.capacity,"male capacity wrong");
 		assertEquals(femaleScanners,root.femaleScanners.capacity,"female capacity wrong");
 	}
@@ -5405,25 +5519,41 @@ public class MainTest {
 		<JavaClass>
 			<Id>1763645975612</Id>
 			<Name><![CDATA[ControlParameters]]></Name>
-			<Text><![CDATA[import lombok.*;
-import java.time.LocalDateTime;
-@NoArgsConstructor(access = AccessLevel.PROTECTED)	
-@AllArgsConstructor(access = AccessLevel.PROTECTED) 
+			<Text><![CDATA[
+public class ControlParameters{
 
-public @Data class ControlParameters implements Serializable {
+    private int scenario;
+    private double simLength;
 
-	private int scenario;
-	private double simLength;
-}]]></Text>
+
+    public ControlParameters() { }
+
+
+    public ControlParameters(int scenario, double simLength) {
+        this.scenario = scenario;
+        this.simLength = simLength;
+    }
+
+    public int getScenario() {
+        return scenario;
+    }
+
+    public void setScenario(int scenario) {
+        this.scenario = scenario;
+    }
+
+    public double getSimLength() {
+        return simLength;
+    }
+
+    public void setSimLength(double simLength) {
+        this.simLength = simLength;
+    }
+}
+]]></Text>
 		</JavaClass>
 	</JavaClasses>
 	<ModelResources>
-		<Resource>
-			<Id>1763573276444</Id>
-			<Path><![CDATA[lombok.jar]]></Path>
-			<ReferencedFromUserCode>false</ReferencedFromUserCode>
-			<Location>FILE_SYSTEM</Location>
-		</Resource>
 		<Resource>
 			<Id>1763645663073</Id>
 			<Path><![CDATA[config.xlsx]]></Path>
@@ -5467,14 +5597,6 @@ public @Data class ControlParameters implements Serializable {
 		<VersionMinor>0</VersionMinor>
 		<VersionBuild>5</VersionBuild>
     </RequiredLibraryReference>
-	<ClassPathEntry>
-		<ResourceReference>
-			<PackageName><![CDATA[junitrealmodelfatjar]]></PackageName>
-			<ClassName><![CDATA[lombok.jar]]></ClassName>
-		</ResourceReference>
-		<Imported>true</Imported>
-		<Folder>false</Folder>
-	</ClassPathEntry>
 	<ClassPathEntry>
 		<ResourceReference>
 			<PackageName><![CDATA[junitrealmodelfatjar]]></PackageName>
