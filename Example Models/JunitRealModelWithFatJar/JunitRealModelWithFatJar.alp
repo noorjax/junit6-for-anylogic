@@ -5470,7 +5470,6 @@ public class MainTest {
 	
 	@BeforeEach
 	void setup() {
-		System.out.println("here");
 		engine=new Tester(null).createEngine();
 		engine.getDefaultRandomGenerator().setSeed(1);
 		engine.setTimeUnit( SECOND );
@@ -5485,7 +5484,6 @@ public class MainTest {
 	@ParameterizedTest(name = "{displayName}(scenarioId={0})")
 	@ValueSource(ints = { 0,1,2})
 	void palindromes(int scenarioId) {
-		System.out.println("scenario"+scenarioId);
 		root.controlParameters.setScenario(scenarioId);
 		root.initModel();
 		engine.runFast();
@@ -5497,14 +5495,12 @@ public class MainTest {
 
 	@Test
 	public void NoPassengerArrival() {
-		System.out.println("no passenger");
 		engine.runFast();
 		assertEquals(0,root.sink.count());
 	}
 
 	@Test
 	public void PassengerArrivesAndExits() {
-		System.out.println("passenger");
 		root.passengerArrivals.inject();
 		engine.runFast();
 		assertEquals(1,root.sink.count());
@@ -5514,7 +5510,6 @@ public class MainTest {
 	
 	@Test
 	public void DoesntRescan() {
-		System.out.println("no rescan");
 		root.passengerArrivals.inject();
 		root.generalParameters.setInsufficientScanRate(0);
 		engine.runFast();
@@ -5522,7 +5517,6 @@ public class MainTest {
 	}
 	@Test
 	public void DoesRescan() {
-		System.out.println("no scan");
 		root.passengerArrivals.inject();
 		root.generalParameters.setInsufficientScanRate(100);
 		engine.runFast();
