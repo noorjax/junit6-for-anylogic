@@ -1137,17 +1137,17 @@ AnyLogicJUnitLauncher.doTest(StudentServiceTest.class);]]></Code>
 import org.junit.jupiter.params.*;
 import org.junit.jupiter.params.provider.*;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 import static org.junit.jupiter.api.Assertions.*;
 
-@DisplayName("Calculator Operations")
+@Execution(ExecutionMode.SAME_THREAD)
 public class CalculatorTest {
 	Calculator calculator;
-	
 	
 
 	@BeforeEach
 	void setup() {
-		
 		calculator=new Calculator();
 	}
 	
@@ -1159,23 +1159,23 @@ public class CalculatorTest {
 	@DisplayName("add 2 numbers")
 	@Test
 	public void addTest() {
-
 		double actualResult=calculator.add(10,20);
-		assertEquals(30,actualResult);
+		//assertEquals(30,actualResult);
+		if(actualResult!=30) {
+			fail("add test is failing");
+		}
 	}
 	
 
 	@DisplayName("sus 2 numbers")
 	@Test
 	public void susTest() {
-
 		double actualResult=calculator.sus(10,20);
 		assertEquals(-10,actualResult);
 	}
 	
 	@Test
 	public void divByZeroTest() {
-
 		assertThrows(
 				ArithmeticException.class,()->
 				calculator.divide(10,0)
@@ -1200,7 +1200,6 @@ public class FactorialTest {
 	@Test
 	public void factorialTest() {
 		Factorial factorial=new Factorial();
-		Calculator calculator=new Calculator();
 		int actualResult=factorial.factorial(5);
 		assertEquals(120,actualResult);
 	}
@@ -1242,7 +1241,7 @@ public class StudentServiceTest implements Serializable {
     	sst.addStudent(student);
     	
     	Student student2=sst.getStudentById(2);
-    	
+    	    	
     	assertNull(student2);
     }
     
@@ -1264,7 +1263,7 @@ public class StudentServiceTest implements Serializable {
     	sst.addStudent(new Student(1,"john","dpt"));
     	sst.addStudent(new Student(2,"johnny","dpt2"));
     	sst.addStudent(new Student(4,"jox","dpt2"));
-    	
+  
     	
     	assertThrows(
     			RuntimeException.class,()->
