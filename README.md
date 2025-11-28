@@ -6,6 +6,8 @@ Created and maintained by Noorjax Consulting — https://www.noorjax.com
 This library is completely free to use.
 You can find a tutorial on how to set this up here:
 https://www.youtube.com/watch?v=zW4u-yII2p4
+And another tutorial for assertions and annotations here:
+https://www.youtube.com/watch?v=cPIHCar9h0o&t=9s
 
 ✅ How to Use It in an Existing AnyLogic Model
 1. Download the JAR and add it to your model dependencies.
@@ -39,7 +41,7 @@ AnyLogicJUnitLauncher.doTest(MainTest.class);
 
 This will execute all tests inside MainTest.
 You can also do AnyLogicJUnitLauncher.doTest(MainTest.class,parallelRuns);  
-where parallelRuns is an integer to allow you to decide how many parallel runs are allowed, but you will need to use the @Execution(ExecutionMode.CONCURRENT) annotation along with this. (a tutorial on this soon)
+where parallelRuns is an integer to allow you to decide how many parallel runs are allowed, but you will need to use the @Execution(ExecutionMode.CONCURRENT) annotation along with this. 
 
 Note:
 Technically you can call doTest anywhere, but placing it inside the RunAllTests experiment is the recommended approach.
