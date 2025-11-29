@@ -4,10 +4,12 @@ A lightweight library that enables JUnit 6 unit testing inside AnyLogic.
 Created and maintained by Noorjax Consulting — https://www.noorjax.com
 
 This library is completely free to use.
-You can find a tutorial on how to set this up here:
-https://www.youtube.com/watch?v=zW4u-yII2p4
-And another tutorial for assertions and annotations here:
-https://www.youtube.com/watch?v=cPIHCar9h0o&t=9s
+You can find a tutorial on how to set this up here:  
+https://www.youtube.com/watch?v=zW4u-yII2p4  
+And another tutorial for assertions and annotations here:  
+https://www.youtube.com/watch?v=cPIHCar9h0o&t=9s  
+Finally, the video explaining how to structure your models in AnyLogic:   
+https://www.youtube.com/watch?v=4Q3104fniJU  
 
 ✅ How to Use It in an Existing AnyLogic Model
 1. Download the JAR and add it to your model dependencies.
