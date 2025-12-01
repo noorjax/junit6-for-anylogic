@@ -3,7 +3,8 @@
 A lightweight library that enables JUnit 6 unit testing inside AnyLogic.
 Created and maintained by Noorjax Consulting — https://www.noorjax.com
 
-This library is completely free to use.
+**This library is completely free to use.**  
+
 You can find a tutorial on how to set this up here:  
 https://www.youtube.com/watch?v=zW4u-yII2p4  
 And another tutorial for assertions and annotations here:  
