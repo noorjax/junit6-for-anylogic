@@ -73,7 +73,7 @@ void setup() {
 }
 ```
 
-We provide examples in the repository, and more tutorials will be added soon.
+We provide examples in the repository and instructions in the videos previously posted.
 
 📟 Test Output in the AnyLogic Console
 
