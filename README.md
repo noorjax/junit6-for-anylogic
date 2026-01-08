@@ -45,7 +45,7 @@ AnyLogicJUnitLauncher.doTest(MainTest.class);
 This will execute all tests inside MainTest.
 You can also do AnyLogicJUnitLauncher.doTest(MainTest.class,parallelRuns);  
 where parallelRuns is an integer to allow you to decide how many parallel runs are allowed, but you will need to use the @Execution(ExecutionMode.CONCURRENT) annotation along with this.  
-The default number of parallel runs is 4.
+The default number of parallel runs is 1.
 
 Note:
 Technically you can call doTest anywhere, but placing it inside the RunAllTests experiment is the recommended approach.
