@@ -4,7 +4,7 @@
 	         AnyLogic Project File
 *************************************************
 -->
-<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.9.6.202509050521" AlpVersion="8.9.6">
+<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.9.7.202512010503" AlpVersion="8.9.7">
 <Model>
 	<Id>1763527187262</Id>
 	<Name><![CDATA[junitLibraryTest]]></Name>
@@ -1275,8 +1275,8 @@ public class StudentServiceTest implements Serializable {
 	</JavaClasses>
 	<ModelResources>
 		<Resource>
-			<Id>1763896786297</Id>
-			<Path><![CDATA[junit-for-anylogic-6.0.1.jar]]></Path>
+			<Id>1767886034495</Id>
+			<Path><![CDATA[junit-for-anylogic-6.0.2-1.jar]]></Path>
 			<ReferencedFromUserCode>false</ReferencedFromUserCode>
 			<Location>FILE_SYSTEM</Location>
 		</Resource>
@@ -1296,7 +1296,7 @@ public class StudentServiceTest implements Serializable {
 	<ClassPathEntry>
 		<ResourceReference>
 			<PackageName><![CDATA[junitLibraryTest]]></PackageName>
-			<ClassName><![CDATA[junit-for-anylogic-6.0.1.jar]]></ClassName>
+			<ClassName><![CDATA[junit-for-anylogic-6.0.2-1.jar]]></ClassName>
 		</ResourceReference>
 		<Imported>true</Imported>
 		<Folder>false</Folder>
@@ -1361,5 +1361,6 @@ public class StudentServiceTest implements Serializable {
 	<Uuid>2216cdd0-177c-5678-9e88-dd8b95312234</Uuid>
 	<Uuid>1737c8c6-b526-4dd8-589e-ee4e205b06f4</Uuid>
 	<Uuid>6a43bef6-8b70-4253-a828-82c3ab399655</Uuid>
+	<Uuid>0a27038a-0f3a-48bb-b235-4a44066a1402</Uuid>
 </ConvertersApplied>
 </AnyLogicWorkspace>

@@ -4,7 +4,7 @@
 	         AnyLogic Project File
 *************************************************
 -->
-<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.9.6.202509050521" AlpVersion="8.9.6">
+<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.9.7.202512010503" AlpVersion="8.9.7">
 <Model>
 	<Id>1764406921253</Id>
 	<Name><![CDATA[HowToDoUnitTestingInSimulations]]></Name>
@@ -1493,8 +1493,8 @@ public class Scenario implements Serializable {
 	</JavaClasses>
 	<ModelResources>
 		<Resource>
-			<Id>1764406946591</Id>
-			<Path><![CDATA[junit-for-anylogic-6.0.1.jar]]></Path>
+			<Id>1767885293917</Id>
+			<Path><![CDATA[junit-for-anylogic-6.0.2-1.jar]]></Path>
 			<ReferencedFromUserCode>false</ReferencedFromUserCode>
 			<Location>FILE_SYSTEM</Location>
 		</Resource>
@@ -1514,7 +1514,7 @@ public class Scenario implements Serializable {
 	<ClassPathEntry>
 		<ResourceReference>
 			<PackageName><![CDATA[howtodounittestinginsimulations]]></PackageName>
-			<ClassName><![CDATA[junit-for-anylogic-6.0.1.jar]]></ClassName>
+			<ClassName><![CDATA[junit-for-anylogic-6.0.2-1.jar]]></ClassName>
 		</ResourceReference>
 		<Imported>true</Imported>
 		<Folder>false</Folder>
@@ -1579,5 +1579,6 @@ public class Scenario implements Serializable {
 	<Uuid>2216cdd0-177c-5678-9e88-dd8b95312234</Uuid>
 	<Uuid>1737c8c6-b526-4dd8-589e-ee4e205b06f4</Uuid>
 	<Uuid>6a43bef6-8b70-4253-a828-82c3ab399655</Uuid>
+	<Uuid>0a27038a-0f3a-48bb-b235-4a44066a1402</Uuid>
 </ConvertersApplied>
 </AnyLogicWorkspace>
